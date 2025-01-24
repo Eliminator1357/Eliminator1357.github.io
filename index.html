@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        function main() {
         alert("epilepsy warning!");
         const body = document.querySelector("body");
         var black = false;
@@ -14,9 +15,10 @@
             black = !black;
         
         },1);
+    }
     </script>
 </head>
-<body style="background-color: white;">
+<body style="background-color: white;" onload="main">
     
 </body>
 </html>
