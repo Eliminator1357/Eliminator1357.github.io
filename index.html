@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        alert("epilepsy warning!");
+        const body = document.querySelector("body");
+        var black = false;
+        setInterval(() => {
+            if (black) body.style.backgroundColor = "white";
+            else body.style.backgroundColor = "black";
+            black = !black;
+        
+        },1);
+    </script>
+</head>
+<body style="background-color: white;">
+    
+</body>
+</html>
