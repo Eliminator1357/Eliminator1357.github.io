@@ -15,7 +15,7 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAlDoPf7zg85DtWyK01D2ISyq3sMspP34s",
+    apiKey: "YOUR_FIREBASE_API_KEY_PLACEHOLDER", // Changed to a string placeholder
     authDomain: "adsavebank.firebaseapp.com",
     databaseURL:
         "https://adsavebank-default-rtdb.europe-west1.firebasedatabase.app",
