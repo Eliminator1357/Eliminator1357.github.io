@@ -11,17 +11,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Inject Firebase API Key
         # This step uses 'sed' to find and replace the placeholder in your JS file.
         # Ensure the path 'your-script-file.js' is correct for your project.
         # The API key is enclosed in double quotes to make it a valid JS string.
         run: |
           sed -i "s|YOUR_FIREBASE_API_KEY_PLACEHOLDER|${{ secrets.FIREBASE_API_KEY }}|g" main.js
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: . # Assuming your index.html and JS file are in the root for simple static sites
-          # If your files are in a 'dist' or 'build' folder, change publish_dir accordingly, e.g., 'dist'
