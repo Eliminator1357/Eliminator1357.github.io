@@ -1,24 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-        function main() {
-        alert("epilepsy warning!");
-        const body = document.querySelector("body");
-        var black = false;
-        setInterval(() => {
-            if (black) body.style.backgroundColor = "white";
-            else body.style.backgroundColor = "black";
-            black = !black;
-        
-        },1);
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      button {
+        padding: 10px 15px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      #status {
+        margin-top: 15px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      #copyBtns {
+        margin-top: 20px;
+        border: 1px solid #eee;
+        padding: 10px;
+        background-color: #f9f9f9;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      #copyBtns button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      #copyBtns button:hover {
+        background-color: #45a049;
+      }
+
+      input[type="text"] {
+        padding: 8px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+    </style>
+
+    <title>AD save db</title>
+  </head>
+
+  <body>
+    <h1>AD Save Database</h1>
+    <label for="save">Enter save:</label><br />
+    <input type="text" id="save" placeholder="Enter your save string here..." />
+    <button onclick="saveSaveFile()">Save Current Save File</button>
+    <button onclick="getAllSaveFilesWrapper()">Get All Save Files</button>
+    <div id="status"></div>
+    <div id="copyBtns"></div>
+
+    <script type="module">
+      import { saveSaveFileToDb, getAllSaveFiles } from "./main.js";
+      // Get DOM elements here once
+      const saveFileInput = document.getElementById("save");
+      const status = document.getElementById("status");
+      const copyBtns = document.getElementById("copyBtns");
+
+      // Wrapper functions to call the module functions, passing DOM elements
+      window.saveSaveFile = function () {
+        saveSaveFileToDb(saveFileInput, status);
+      };
+
+      window.getAllSaveFilesWrapper = async function () {
+        await getAllSaveFiles(status, copyBtns);
+      };
     </script>
-</head>
-<body style="background-color: white;" onload="main()">
-    
-</body>
+  </body>
 </html>
